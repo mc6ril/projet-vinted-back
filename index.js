@@ -15,6 +15,14 @@ mongoose.connect(process.env.MONGODB_URI, {
     useCreateIndex: true,
 });
 
+//configuration de cloudinary :
+cloudinary.config({
+    cloud_name: CLOUD_NAME,
+    api_key: API_KEY,
+    api_secret: API_SECRET,
+    secure: true,
+});
+
 //Import des routes
 const userRoutes = require('./routes/userRoutes');
 app.use(userRoutes);

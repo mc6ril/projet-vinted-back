@@ -1,18 +1,10 @@
 const express = require('express');
-const formidable = require('express-formidable');
 const router = express.Router();
-router.use(formidable());
-const Offer = require('../models/Offer');
-const isAuthenticated = require('../middlewares/isAuthenticated');
-const cloudinary = require('cloudinary').v2;
 
-//configuration de cloudinary :
-cloudinary.config({
-    cloud_name: CLOUD_NAME,
-    api_key: API_KEY,
-    api_secret: API_SECRET,
-    secure: true,
-});
+const cloudinary = require('cloudinary').v2;
+const Offer = require('../models/Offer');
+const User = require('../models/User');
+const isAuthenticated = require('../middlewares/isAuthenticated');
 
 //Création des routes offers
 //Route de publish

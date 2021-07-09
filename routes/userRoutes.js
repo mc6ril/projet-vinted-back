@@ -1,7 +1,6 @@
 const express = require('express');
-const formidable = require('express-formidable');
 const router = express.Router();
-router.use(formidable());
+
 const uid2 = require('uid2');
 const SHA256 = require('crypto-js/sha256');
 const encBase64 = require('crypto-js/enc-base64');
