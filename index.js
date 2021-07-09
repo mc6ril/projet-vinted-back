@@ -7,7 +7,7 @@ app.use(formidable());
 app.use(dotenv());
 
 //Connection à mongoDb
-mongoose.connect(MONGODB_URI, {
+mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
