@@ -16,6 +16,7 @@ mongoose.connect(process.env.MONGODB_URI, {
 });
 
 //configuration de cloudinary :
+const cloudinary = require('cloudinary').v2;
 cloudinary.config({
     cloud_name: CLOUD_NAME,
     api_key: API_KEY,
