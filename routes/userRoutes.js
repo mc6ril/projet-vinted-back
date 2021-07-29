@@ -58,7 +58,7 @@ router.post('/user/signup', async (req, res) => {
 
 //Initialisation de la route de Sign in
 
-router.post('/user/login', isAuthenticated, async (req, res) => {
+router.post('/user/login', async (req, res) => {
     try {
         const checkMail = await RegExp(req.fields.email, 'i');
         const findMail = await User.findOne({ email: checkMail });
