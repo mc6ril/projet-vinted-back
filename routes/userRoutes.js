@@ -39,10 +39,12 @@ router.post('/user/signup', async (req, res) => {
                 salt: salt,
                 hash: hash,
             });
+            if (req.files.avatar.path) {
+                await cloudinary.uploader.upload(req.files.avatar.path, {
+                    folder: `/vinted/user/${user._id}`,
+                });
+            }
 
-            await cloudinary.uploader.upload(req.files.avatar.path, {
-                folder: `/vinted/user/${user._id}`,
-            });
             await user.save();
             res.status(200).json({
                 email: user.email,
