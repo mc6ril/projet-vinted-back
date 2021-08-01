@@ -13,7 +13,7 @@ router.post('/stores/newstore', async (req, res) => {
             store_name,
             store_adress,
             store_opening,
-            store_number,
+            store_phone,
             store_city,
             store_cp,
         } = req.fields;
@@ -24,7 +24,7 @@ router.post('/stores/newstore', async (req, res) => {
             store_city: store_city,
             store_cp: store_cp,
             store_opening: store_opening,
-            store_number: store_number,
+            store_phone: store_phone,
         });
 
         if (req.files.picture) {

@@ -10,7 +10,7 @@ const Stores = mongoose.model('Store', {
     store_city: String,
     store_cp: Number,
     store_opening: String,
-    store_number: Number,
+    store_phone: String,
 });
 
 module.exports = Stores;
