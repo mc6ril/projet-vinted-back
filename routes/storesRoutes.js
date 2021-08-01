@@ -26,13 +26,16 @@ router.post('/stores/newstore', async (req, res) => {
             store_opening: store_opening,
             store_number: store_number,
         });
-        const result = await cloudinary.uploader.upload(req.files.picture.path, {
-            folder: `/orion-vinted/stores/${newStore._id}`,
-        });
-        // Ajouter le resultat de l'upload dans newStore
-        newStore.store_image = result;
-        // Sauvgarder newStore
+
+        if (req.files.picture) {
+            const result = await cloudinary.uploader.upload(req.files.picture.path, {
+                folder: `/orion-vinted/stores/${newStore._id}`,
+            });
+            newStore.store_image = result;
+        }
+
         await newStore.save();
+
         res.json(newStore);
     } catch (error) {
         res.status(400).json({ message: error.message });
