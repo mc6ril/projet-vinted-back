@@ -24,8 +24,6 @@ cloudinary.config({
     secure: true,
 });
 
-console.log('test');
-
 //Import des routes
 const userRoutes = require('./routes/userRoutes');
 app.use(userRoutes);
