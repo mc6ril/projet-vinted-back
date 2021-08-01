@@ -19,10 +19,6 @@ router.post('/stores/newstore', async (req, res) => {
         } = req.fields;
 
         const newStore = new Stores({
-            store_image: {
-                type: mongoose.Schema.Types.Mixed,
-                default: {},
-            },
             store_name: store_name,
             store_adress: store_adress,
             store_city: store_city,
