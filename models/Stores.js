@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const Stores = mongoose.model('store', {
+const Stores = mongoose.model('Store', {
     store_image: {
         type: mongoose.Schema.Types.Mixed,
         default: {},
