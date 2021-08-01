@@ -36,7 +36,7 @@ router.post('/stores/newstore', async (req, res) => {
 
         await newStore.save();
 
-        res.json(newStore);
+        res.status(200).json({ newStore });
     } catch (error) {
         res.status(400).json({ message: error.message });
     }
