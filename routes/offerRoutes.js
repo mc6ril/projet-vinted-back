@@ -4,6 +4,7 @@ const router = express.Router();
 const cloudinary = require('cloudinary').v2;
 const Offer = require('../models/Offer');
 const User = require('../models/User');
+const Stores = require('../models/Stores');
 const isAuthenticated = require('../middlewares/isAuthenticated');
 
 //Création des routes offers

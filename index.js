@@ -31,6 +31,8 @@ const userRoutes = require('./routes/userRoutes');
 app.use(userRoutes);
 const offerRoutes = require('./routes/offerRoutes');
 app.use(offerRoutes);
+const storesRoutes = require('./routes/storesRoutes');
+app.use(storesRoutes);
 
 //Route par défault :
 app.get('/', (req, res) => {
