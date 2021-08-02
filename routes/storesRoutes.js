@@ -29,7 +29,7 @@ router.post('/stores/newstore', async (req, res) => {
 
         if (req.files.picture) {
             const result = await cloudinary.uploader.upload(req.files.picture.path, {
-                folder: `/orion-vinted/stores/${newStore._id}`,
+                folder: `/vinted/stores/${newStore._id}`,
             });
             newStore.store_image = result;
         }
