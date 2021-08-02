@@ -30,13 +30,10 @@ router.post('/offer/publish', isAuthenticated, async (req, res) => {
             owner: req.user,
         });
 
-        if (req.files.product_image) {
-            const result = await cloudinary.uploader.upload(
-                req.files.product_image.path,
-                {
-                    folder: `/vinted/offers/${newOffer._id}`,
-                },
-            );
+        if (req.files.picture) {
+            const result = await cloudinary.uploader.upload(req.files.picture.path, {
+                folder: `/vinted/offers/${newOffer._id}`,
+            });
             newOffer.product_image = result;
         }
 
