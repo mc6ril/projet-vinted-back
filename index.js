@@ -40,23 +40,24 @@ app.get('/', (req, res) => {
 
 app.post('/payment', async (req, res) => {
     try {
+        console.log(hello);
         const response = await stripe.charges.create({
             amount: req.fields.amount * 100,
             currency: 'eur',
             description: req.fields.title,
-            source: req.fields.token,
+            source: req.fields.stripeToken,
         });
 
         console.log(response.status);
 
         res.json(response);
     } catch (error) {
-        res.status(404).json({ message: `Hello` });
+        res.status(400).json({ message: `Hello` });
     }
 });
 
 app.all('*', (req, res) => {
-    res.status(404).json({ message: `Hello 2` });
+    res.status(404).json({ message: `Page not found` });
 });
 
 //Lancement du serveur
