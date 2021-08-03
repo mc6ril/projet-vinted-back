@@ -40,7 +40,6 @@ app.get('/', (req, res) => {
 
 app.post('/payment', async (req, res) => {
     try {
-        console.log('hello');
         const response = await stripe.charges.create({
             amount: req.fields.amount * 100,
             currency: 'eur',
@@ -48,13 +47,10 @@ app.post('/payment', async (req, res) => {
             source: req.fields.stripeToken,
         });
 
-        console.log('hello2');
-        console.log(response.status);
-
         res.json(response);
     } catch (error) {
         console.log(error.message);
-        res.status(400).json({ message: `Hello` });
+        res.status(400).json({ message: `En error occured` });
     }
 });
 
