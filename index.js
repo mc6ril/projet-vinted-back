@@ -51,12 +51,12 @@ app.post('/payment', async (req, res) => {
 
         res.json(response);
     } catch (error) {
-        res.status(404).json({ message: `Page not found` });
+        res.status(404).json({ message: `Hello` });
     }
 });
 
 app.all('*', (req, res) => {
-    res.status(404).json({ message: `Page not found` });
+    res.status(404).json({ message: `Hello 2` });
 });
 
 //Lancement du serveur
