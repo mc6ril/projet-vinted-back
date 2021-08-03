@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const formidable = require('express-formidable');
 const cors = require('cors');
+const stripe = require('stripe')(process.env.STRIPE_KEY);
 const app = express();
 app.use(formidable());
 app.use(cors());
@@ -35,6 +36,23 @@ app.use(storesRoutes);
 //Route par défault :
 app.get('/', (req, res) => {
     res.json("Bienvenue sur l'API de Vinted");
+});
+
+app.post('/payment', async (req, res) => {
+    try {
+        const response = await stripe.charges.create({
+            amount: req.fields.amount * 100,
+            currency: 'eur',
+            description: req.fields.title,
+            source: req.fields.token,
+        });
+
+        console.log(response.status);
+
+        res.json(response);
+    } catch (error) {
+        res.status(404).json({ message: `Page not found` });
+    }
 });
 
 app.all('*', (req, res) => {
